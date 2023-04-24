@@ -1,54 +1,50 @@
-# app/controllers/tax_rates_controller.rb
-
 class TaxRatesController < ApplicationController
-  before_action :set_tax_rate, only: [:show, :update, :destroy]
+  before_action :set_tax_rate, only: [:show, :edit, :update, :destroy]
 
-  # GET /tax_rates
   def index
     @tax_rates = TaxRate.all
-
-    render json: @tax_rates
   end
 
-  # GET /tax_rates/1
   def show
-    render json: @tax_rate
   end
 
-  # POST /tax_rates
+  def new
+    @tax_rate = TaxRate.new
+  end
+
+  def edit
+  end
+
   def create
     @tax_rate = TaxRate.new(tax_rate_params)
 
     if @tax_rate.save
-      render json: @tax_rate, status: :created, location: @tax_rate
+      redirect_to @tax_rate, notice: 'Tax rate was successfully created.'
     else
-      render json: @tax_rate.errors, status: :unprocessable_entity
+      render :new
     end
   end
 
-  # PATCH/PUT /tax_rates/1
   def update
     if @tax_rate.update(tax_rate_params)
-      render json: @tax_rate
+      redirect_to @tax_rate, notice: 'Tax rate was successfully updated.'
     else
-      render json: @tax_rate.errors, status: :unprocessable_entity
+      render :edit
     end
   end
 
-  # DELETE /tax_rates/1
   def destroy
     @tax_rate.destroy
+    redirect_to tax_rates_url, notice: 'Tax rate was successfully destroyed.'
   end
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tax_rate
-      @tax_rate = TaxRate.find(params[:id])
-    end
+  def set_tax_rate
+    @tax_rate = TaxRate.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def tax_rate_params
-      params.require(:tax_rate).permit(:name, :rate)
-    end
+  def tax_rate_params
+    params.require(:tax_rate).permit(:name, :rate)
+  end
 end

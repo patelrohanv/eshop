@@ -1,13 +1,10 @@
-# config/routes.rb
-
 Rails.application.routes.draw do
-  # Define routes for the TaxRatesController
-  resources :tax_rates, only: [:index, :show, :create, :update, :destroy]
+  resources :items
+  resources :tax_rates
+  resources :categories
+  resources :modifier_groups
 
-  # Define routes for other resources in your application
-  resources :items, only: [:index, :show, :create, :update, :destroy]
-  # resources :modifier_groups, only: [:index, :show, :create, :update, :destroy]
-  # resources :categories, only: [:index, :show, :create, :update, :destroy]
+  # You can add other routes here as needed.
 
-  # Add any additional routes or custom routes you need
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
