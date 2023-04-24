@@ -6,7 +6,6 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.float :price
       t.float :cost
       t.integer :quantity
-      t.float :tax_rate
       t.string :sku
 
       t.timestamps

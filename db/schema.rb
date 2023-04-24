@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_23_162219) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_23_170900) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -28,10 +28,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_162219) do
     t.float "price"
     t.float "cost"
     t.integer "quantity"
-    t.float "tax_rate"
     t.string "sku"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tax_rate_id", null: false
+    t.index ["tax_rate_id"], name: "index_items_on_tax_rate_id"
   end
 
   create_table "items_modifier_groups", id: false, force: :cascade do |t|
@@ -45,4 +46,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_162219) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tax_rates", force: :cascade do |t|
+    t.string "name"
+    t.float "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "items", "tax_rates"
 end
