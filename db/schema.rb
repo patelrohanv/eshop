@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_04_23_170900) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -18,8 +21,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_170900) do
   end
 
   create_table "categories_items", id: false, force: :cascade do |t|
-    t.integer "item_id", null: false
-    t.integer "category_id", null: false
+    t.bigint "item_id", null: false
+    t.bigint "category_id", null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -31,13 +34,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_170900) do
     t.string "sku"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "tax_rate_id", null: false
+    t.bigint "tax_rate_id", null: false
     t.index ["tax_rate_id"], name: "index_items_on_tax_rate_id"
   end
 
   create_table "items_modifier_groups", id: false, force: :cascade do |t|
-    t.integer "item_id", null: false
-    t.integer "modifier_group_id", null: false
+    t.bigint "item_id", null: false
+    t.bigint "modifier_group_id", null: false
   end
 
   create_table "modifier_groups", force: :cascade do |t|
