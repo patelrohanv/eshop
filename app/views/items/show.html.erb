@@ -30,5 +30,11 @@
   <%= @item.sku %>
 </p>
 
+<p>
+  <% @item.images.each do |image| %>
+    <%= image_tag image.variant(resize: "100x100") %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
