@@ -1,52 +1,41 @@
-# **Eshop - Open Source E-commerce**
+# Open Source Inventory System
 
-Eshop is an open-source e-commerce platform built with Ruby on Rails. Currently, we are trying to integrate with Clover's point-of-sale (POS) system to automatically synchronize inventory and sales data.
+This is an open-source inventory system built using Ruby on Rails. It provides a RESTful API for managing items, categories, tax rates, and modifier groups.
 
-## **Features**
+## Features
 
-- Manage inventory items with associated categories and modifier groups
-- Calculate taxes based on tax rates
-- Clover Real-time Messaging (RTM) integration for real-time updates on sales
-- RESTful API for managing data
+- Manage items with attributes like name, alternate name, price, cost, quantity, SKU, and tax rate.
+- Organize items into categories.
+- Define tax rates for items.
+- Create modifier groups for items.
 
-## **Requirements**
-
-- Ruby 3.2.2 or later
-- Ruby on Rails 6.1 or later
-- SQLite (development and test environments)
-- PostgreSQL (production environment)
-- Clover Developer Account (for API access)
-
-## **Installation**
+## Installation
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/eshop.git
-cd eshop
+git clone https://github.com/patelrohanv/rails-inventory.git
 ```
 
-1. Install the required gems:
+2. Change into the directory:
+
+```bash
+cd rails-inventory
+```
+
+3. Install dependencies:
 
 ```bash
 bundle install
 ```
 
-1. Configure your Clover API credentials and IDs in the **`config/secrets.yml`** file or by setting the corresponding environment variables:
-
-```bash
-export CLOVER_ACCESS_TOKEN_DEV="your_access_token"
-export CLOVER_MERCHANT_ID_DEV="your_merchant_id"
-export CLOVER_DEVICE_ID_DEV="your_device_id"
-```
-
-1. Set up the database:
+4. Set up the database:
 
 ```bash
 rails db:migrate
 ```
 
-1. Start the Rails server:
+5. Start the Rails server:
 
 ```bash
 rails server
