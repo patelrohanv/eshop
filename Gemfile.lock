@@ -133,6 +133,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.3-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.14.3-x86_64-linux)
+      racc (~> 1.4)
     pg (1.5.1)
     psych (5.1.0)
       stringio
@@ -190,6 +192,7 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.6.2-aarch64-linux)
     sqlite3 (1.6.2-arm64-darwin)
+    sqlite3 (1.6.2-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     stringio (3.0.6)
@@ -221,6 +224,7 @@ GEM
 PLATFORMS
   aarch64-linux
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
